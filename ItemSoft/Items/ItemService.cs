@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using ItemSoft.FileSystem;
 using ItemSoft.Data;
+using ItemSoft.Infrastructure;
+using ItemSoft.Categories;
 
 namespace ItemSoft.Items
 {
@@ -26,6 +28,9 @@ namespace ItemSoft.Items
         {
             foreach (var p in products)
             {
+                IoC.Resolve<ICategoryService>().CategoryAnalyzer(p.MerchantProductCategory);
+
+
                 Item _item = _context.Item.FirstOrDefault(x => x.Zupid == p.Zupid);
                 if (_item == null)
                 {

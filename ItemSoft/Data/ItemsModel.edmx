@@ -28,6 +28,8 @@
           <Property Name="Name" Type="nvarchar(max)" />
           <Property Name="ParentId" Type="int" />
           <Property Name="ImagePath" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
@@ -61,6 +63,8 @@
           <Property Name="ExtraTextTwo" Type="nvarchar(max)" />
           <Property Name="ExtraTextTree" Type="nvarchar(max)" />
           <Property Name="Culture" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="UpdatedOn" Type="datetime" />
         </EntityType>
         <EntityType Name="ItemCategory">
           <Key>
@@ -135,6 +139,8 @@
           <Property Name="ParentId" Type="Int32" />
           <Property Name="ImagePath" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Item" Relationship="ItemCoreModel.ItemCategory" FromRole="Category" ToRole="Item" />
+          <Property Type="DateTime" Name="CreatedOn" Precision="3" />
+          <Property Type="DateTime" Name="UpdatedOn" Precision="3" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
@@ -169,6 +175,8 @@
           <Property Name="ExtraTextTree" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Culture" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Category" Relationship="ItemCoreModel.ItemCategory" FromRole="Item" ToRole="Category" />
+          <Property Type="DateTime" Name="CreatedOn" Precision="3" />
+          <Property Type="DateTime" Name="UpdatedOn" Precision="3" />
         </EntityType>
         <EntityType Name="Pricing">
           <Key>
@@ -199,13 +207,17 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ItemCoreModelStoreContainer" CdmEntityContainer="ItemCoreEntities">
           <EntitySetMapping Name="Category"><EntityTypeMapping TypeName="ItemCoreModel.Category"><MappingFragment StoreEntitySet="Category">
-            <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+            <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
             <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="ParentId" ColumnName="ParentId" />
             <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Item"><EntityTypeMapping TypeName="ItemCoreModel.Item"><MappingFragment StoreEntitySet="Item">
-            <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+            <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
             <ScalarProperty Name="Zupid" ColumnName="Zupid" />
             <ScalarProperty Name="MerchantProductNumber" ColumnName="MerchantProductNumber" />
             <ScalarProperty Name="ProductName" ColumnName="ProductName" />

@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -135,6 +136,7 @@ namespace ItemSoft.Data
         private ObjectSet<Setting> _Setting;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -170,11 +172,11 @@ namespace ItemSoft.Data
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -199,6 +201,7 @@ namespace ItemSoft.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -299,8 +302,57 @@ namespace ItemSoft.Data
         private global::System.String _ImagePath;
         partial void OnImagePathChanging(global::System.String value);
         partial void OnImagePathChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> CreatedOn
+        {
+            get
+            {
+                return _CreatedOn;
+            }
+            set
+            {
+                OnCreatedOnChanging(value);
+                ReportPropertyChanging("CreatedOn");
+                _CreatedOn = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreatedOn");
+                OnCreatedOnChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _CreatedOn;
+        partial void OnCreatedOnChanging(Nullable<global::System.DateTime> value);
+        partial void OnCreatedOnChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> UpdatedOn
+        {
+            get
+            {
+                return _UpdatedOn;
+            }
+            set
+            {
+                OnUpdatedOnChanging(value);
+                ReportPropertyChanging("UpdatedOn");
+                _UpdatedOn = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UpdatedOn");
+                OnUpdatedOnChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _UpdatedOn;
+        partial void OnUpdatedOnChanging(Nullable<global::System.DateTime> value);
+        partial void OnUpdatedOnChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -327,6 +379,7 @@ namespace ItemSoft.Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -351,6 +404,7 @@ namespace ItemSoft.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1027,8 +1081,57 @@ namespace ItemSoft.Data
         private global::System.String _Culture;
         partial void OnCultureChanging(global::System.String value);
         partial void OnCultureChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> CreatedOn
+        {
+            get
+            {
+                return _CreatedOn;
+            }
+            set
+            {
+                OnCreatedOnChanging(value);
+                ReportPropertyChanging("CreatedOn");
+                _CreatedOn = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreatedOn");
+                OnCreatedOnChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _CreatedOn;
+        partial void OnCreatedOnChanging(Nullable<global::System.DateTime> value);
+        partial void OnCreatedOnChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> UpdatedOn
+        {
+            get
+            {
+                return _UpdatedOn;
+            }
+            set
+            {
+                OnUpdatedOnChanging(value);
+                ReportPropertyChanging("UpdatedOn");
+                _UpdatedOn = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UpdatedOn");
+                OnUpdatedOnChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _UpdatedOn;
+        partial void OnUpdatedOnChanging(Nullable<global::System.DateTime> value);
+        partial void OnUpdatedOnChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1055,6 +1158,7 @@ namespace ItemSoft.Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1079,6 +1183,7 @@ namespace ItemSoft.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1181,6 +1286,7 @@ namespace ItemSoft.Data
         partial void OnCultureChanged();
 
         #endregion
+
     
     }
     
@@ -1206,6 +1312,7 @@ namespace ItemSoft.Data
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1308,9 +1415,11 @@ namespace ItemSoft.Data
         partial void OnDescriptionChanged();
 
         #endregion
+
     
     }
 
     #endregion
+
     
 }

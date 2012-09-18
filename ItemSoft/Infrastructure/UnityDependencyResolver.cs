@@ -21,6 +21,7 @@ using ItemSoft.Data;
 using ItemSoft.PricingServices;
 using ItemSoft.Settings;
 using ItemSoft.Items;
+using ItemSoft.Syncro;
 
 
 namespace ItemSoft.Infrastructure
@@ -74,56 +75,8 @@ namespace ItemSoft.Infrastructure
             container.RegisterType<IPricingService, PricingService>(new UnityPerExecutionContextLifetimeManager());
             container.RegisterType<ISettingService, SettingService>(new UnityPerExecutionContextLifetimeManager());
             container.RegisterType<IItemService, ItemService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IOnlineUserService, OnlineUserService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ISearchLogService, SearchLogService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ICustomerActivityService, CustomerActivityService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ILogService, LogService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ICategoryService, CategoryService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ISettingManager, SettingManager>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IBlogService, BlogService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IForumService, ForumService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<INewsService, NewsService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IPollService, PollService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ITopicService, TopicService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ICustomerService, CustomerService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ICountryService, CountryService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ICurrencyService, CurrencyService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ILanguageService, LanguageService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IStateProvinceService, StateProvinceService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IExportManager, ExportManager>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IImportManager, ImportManager>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ILocalizationManager, LocalizationManager>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IMaintenanceService, MaintenanceService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IManufacturerService, ManufacturerService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IMeasureService, MeasureService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IDownloadService, DownloadService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IPictureService, PictureService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ISMSService, SMSService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IMessageService, MessageService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IOrderService, OrderService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IShoppingCartService, ShoppingCartService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IPaymentService, PaymentService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ICheckoutAttributeService, CheckoutAttributeService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IProductAttributeService, ProductAttributeService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ISpecificationAttributeService, SpecificationAttributeService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IProductService, ProductService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IAffiliateService, AffiliateService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ICampaignService, CampaignService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IDiscountService, DiscountService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IQBService, QBService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IACLService, ACLService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IBlacklistService, BlacklistService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IShippingByTotalService, ShippingByTotalService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IShippingByWeightAndCountryService, ShippingByWeightAndCountryService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IShippingByWeightService, ShippingByWeightService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IShippingService, ShippingService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ITaxCategoryService, TaxCategoryService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ITaxService, TaxService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ITaxProviderService, TaxProviderService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ITaxRateService, TaxRateService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<ITemplateService, TemplateService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IWarehouseService, WarehouseService>(new UnityPerExecutionContextLifetimeManager());
-            //container.RegisterType<IeDockApiService, eDockApiService>(new UnityPerExecutionContextLifetimeManager());
+            container.RegisterType<ISyncroService, SyncroService>(new UnityPerExecutionContextLifetimeManager());
+           
             
 
             //Object context

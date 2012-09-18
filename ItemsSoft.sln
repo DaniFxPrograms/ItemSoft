@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{11118158-EC61-4008-8EDB-5F4D63F179D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreTests", "CoreTests\CoreTests.csproj", "{21E91E9F-955E-4689-868E-DC8BFAB10CC5}"
@@ -12,16 +12,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{93A61CA2-8D4C-40D1-9BD3-1FC7EE872A40}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "log4net.vs2010", "log4net\log4net.vs2010.csproj", "{181FE707-E161-4722-9F38-6AAAB6FAA106}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemSoft", "ItemSoft\ItemSoft.csproj", "{470BE5DE-3A35-4DBA-A93D-11DDC0425F2E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{98A4BC20-97E1-42B2-8CA9-7EFDCA1ECC6A}"
 	ProjectSection(SolutionItems) = preProject
 		Dependencies\ICSharpCode.SharpZipLib.dll = Dependencies\ICSharpCode.SharpZipLib.dll
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B11A0986-A792-4938-BAD1-B6EC0C4BF9D9}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -56,16 +54,6 @@ Global
 		{21E91E9F-955E-4689-868E-DC8BFAB10CC5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{21E91E9F-955E-4689-868E-DC8BFAB10CC5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{21E91E9F-955E-4689-868E-DC8BFAB10CC5}.Release|x86.ActiveCfg = Release|Any CPU
-		{181FE707-E161-4722-9F38-6AAAB6FAA106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{181FE707-E161-4722-9F38-6AAAB6FAA106}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{181FE707-E161-4722-9F38-6AAAB6FAA106}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{181FE707-E161-4722-9F38-6AAAB6FAA106}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{181FE707-E161-4722-9F38-6AAAB6FAA106}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{181FE707-E161-4722-9F38-6AAAB6FAA106}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{181FE707-E161-4722-9F38-6AAAB6FAA106}.Release|Any CPU.Build.0 = Release|Any CPU
-		{181FE707-E161-4722-9F38-6AAAB6FAA106}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{181FE707-E161-4722-9F38-6AAAB6FAA106}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{181FE707-E161-4722-9F38-6AAAB6FAA106}.Release|x86.ActiveCfg = Release|Any CPU
 		{470BE5DE-3A35-4DBA-A93D-11DDC0425F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{470BE5DE-3A35-4DBA-A93D-11DDC0425F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{470BE5DE-3A35-4DBA-A93D-11DDC0425F2E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -81,6 +69,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{181FE707-E161-4722-9F38-6AAAB6FAA106} = {93A61CA2-8D4C-40D1-9BD3-1FC7EE872A40}
+		{21E91E9F-955E-4689-868E-DC8BFAB10CC5} = {B11A0986-A792-4938-BAD1-B6EC0C4BF9D9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35
 	EndGlobalSection
 EndGlobal

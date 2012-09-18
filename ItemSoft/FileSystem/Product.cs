@@ -30,5 +30,8 @@ namespace ItemSoft.FileSystem
         public string ISBN;
         public string ShippingAndHandling;
         public string ShippingAndHandlingCost;
+        public string ProductPriceOld;
+        public string ProductEAN;
+
     }
 }

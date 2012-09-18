@@ -33,14 +33,20 @@ namespace ItemSoft.Categories
         }
 
 
-        private int CategoryAnalyzer(string categories)
+
+        int ICategoryService.CategoryAnalyzer(string categories)
         {
             string[] categoriesArray = categories.Split('/');
             for (int i = 0; i < categoriesArray.Length - 1; i++)
             {
                 string cat = categoriesArray[i].Trim();
-
+                var fCat = _context.Category.FirstOrDefault(x => x.Name == cat);
+                if (fCat == null)
+                {
+ 
+                }
             }
+           
         }
     }
 }
