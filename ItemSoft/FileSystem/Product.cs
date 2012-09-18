@@ -32,6 +32,12 @@ namespace ItemSoft.FileSystem
         public string ShippingAndHandlingCost;
         public string ProductPriceOld;
         public string ProductEAN;
+        public string ProgramId;
+        public string UpdateDate;
+        public string ValidToDate;
+        public string ExtraTextOne;
+        public string ExtraTextTwo;
+        public string ExtraTextThree;
 
     }
 }

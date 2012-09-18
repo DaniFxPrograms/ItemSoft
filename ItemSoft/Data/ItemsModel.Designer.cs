@@ -559,30 +559,6 @@ namespace ItemSoft.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String ValidFromDatre
-        {
-            get
-            {
-                return _ValidFromDatre;
-            }
-            set
-            {
-                OnValidFromDatreChanging(value);
-                ReportPropertyChanging("ValidFromDatre");
-                _ValidFromDatre = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("ValidFromDatre");
-                OnValidFromDatreChanged();
-            }
-        }
-        private global::System.String _ValidFromDatre;
-        partial void OnValidFromDatreChanging(global::System.String value);
-        partial void OnValidFromDatreChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public global::System.String ValidToDate
         {
             get
@@ -1129,6 +1105,54 @@ namespace ItemSoft.Data
         private Nullable<global::System.DateTime> _UpdatedOn;
         partial void OnUpdatedOnChanging(Nullable<global::System.DateTime> value);
         partial void OnUpdatedOnChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ValidFromDate
+        {
+            get
+            {
+                return _ValidFromDate;
+            }
+            set
+            {
+                OnValidFromDateChanging(value);
+                ReportPropertyChanging("ValidFromDate");
+                _ValidFromDate = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ValidFromDate");
+                OnValidFromDateChanged();
+            }
+        }
+        private global::System.String _ValidFromDate;
+        partial void OnValidFromDateChanging(global::System.String value);
+        partial void OnValidFromDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ProgramId
+        {
+            get
+            {
+                return _ProgramId;
+            }
+            set
+            {
+                OnProgramIdChanging(value);
+                ReportPropertyChanging("ProgramId");
+                _ProgramId = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ProgramId");
+                OnProgramIdChanged();
+            }
+        }
+        private global::System.String _ProgramId;
+        partial void OnProgramIdChanging(global::System.String value);
+        partial void OnProgramIdChanged();
 
         #endregion
 

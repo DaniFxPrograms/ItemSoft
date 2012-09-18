@@ -37,15 +37,39 @@ namespace ItemSoft.Categories
         int ICategoryService.CategoryAnalyzer(string categories)
         {
             string[] categoriesArray = categories.Split('/');
-            for (int i = 0; i < categoriesArray.Length - 1; i++)
+            for (int i = 0; i <= categoriesArray.Length - 1; i++)
             {
                 string cat = categoriesArray[i].Trim();
                 var fCat = _context.Category.FirstOrDefault(x => x.Name == cat);
+
+
                 if (fCat == null)
                 {
- 
+                    Category nCat = null;
+                    switch (i)
+                    {
+                        case 0:
+                            nCat = new Category() { CreatedOn = DateTime.Now, Name = cat, ParentId = 0 };
+                            break;
+                        default:
+                            string nameInCat = categoriesArray[i - 1].Trim();
+                            var pCat = _context.Category.FirstOrDefault(x => x.Name == nameInCat.Trim());
+                            if (pCat != null)
+                                nCat = new Category() { ParentId = pCat.CategoryId, CreatedOn = DateTime.Now, Name = cat };
+                            else
+                            {
+                                throw new Exception("Errore nella creazione delle cateogorie");
+                            }
+                            break;
+                    }
+                    _context.Category.AddObject(nCat);
+                    _context.SaveChanges();
                 }
             }
+            _context.SaveChanges();
+            string nameCat=categoriesArray[categoriesArray.Length - 1];
+            var catObj = _context.Category.FirstOrDefault(x => x.Name == nameCat.Trim());
+            return catObj.CategoryId;           
            
         }
     }

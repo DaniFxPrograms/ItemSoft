@@ -22,6 +22,7 @@ using ItemSoft.PricingServices;
 using ItemSoft.Settings;
 using ItemSoft.Items;
 using ItemSoft.Syncro;
+using ItemSoft.Categories;
 
 
 namespace ItemSoft.Infrastructure
@@ -76,6 +77,7 @@ namespace ItemSoft.Infrastructure
             container.RegisterType<ISettingService, SettingService>(new UnityPerExecutionContextLifetimeManager());
             container.RegisterType<IItemService, ItemService>(new UnityPerExecutionContextLifetimeManager());
             container.RegisterType<ISyncroService, SyncroService>(new UnityPerExecutionContextLifetimeManager());
+            container.RegisterType<ICategoryService, CategoryService>(new UnityPerExecutionContextLifetimeManager());
            
             
 

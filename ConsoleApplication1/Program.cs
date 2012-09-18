@@ -13,7 +13,8 @@ namespace ConsoleApplication1
         {
             //initialize IoC
             IoC.InitializeWith(new DependencyResolverFactory());
-            Downloader.DowloadAllFiles();
+            Parser _parse = new Parser();
+            _parse.Execute();
         }
     }
 }

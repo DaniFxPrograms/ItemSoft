@@ -41,7 +41,7 @@
           <Property Name="ProductName" Type="nvarchar(max)" />
           <Property Name="ProductPrice" Type="nvarchar(max)" />
           <Property Name="CurrencySymbolOfPrice" Type="nvarchar(max)" />
-          <Property Name="ValidFromDatre" Type="nvarchar(max)" />
+          <Property Name="ValidFromDate" Type="nvarchar(max)" />
           <Property Name="ValidToDate" Type="nvarchar(max)" />
           <Property Name="ProductShortDescription" Type="nvarchar(max)" />
           <Property Name="ProductLongDescription" Type="nvarchar(max)" />
@@ -65,6 +65,7 @@
           <Property Name="Culture" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedOn" Type="datetime" />
           <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="ProgramId" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="ItemCategory">
           <Key>
@@ -152,7 +153,6 @@
           <Property Name="ProductName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="ProductPrice" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="CurrencySymbolOfPrice" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="ValidFromDatre" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="ValidToDate" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="ProductShortDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="ProductLongDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -177,6 +177,8 @@
           <NavigationProperty Name="Category" Relationship="ItemCoreModel.ItemCategory" FromRole="Item" ToRole="Category" />
           <Property Type="DateTime" Name="CreatedOn" Precision="3" />
           <Property Type="DateTime" Name="UpdatedOn" Precision="3" />
+          <Property Type="String" Name="ValidFromDate" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProgramId" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Pricing">
           <Key>
@@ -215,7 +217,9 @@
             <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Item"><EntityTypeMapping TypeName="ItemCoreModel.Item"><MappingFragment StoreEntitySet="Item">
-            <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+            <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+                <ScalarProperty Name="ValidFromDate" ColumnName="ValidFromDate" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
             <ScalarProperty Name="Zupid" ColumnName="Zupid" />
@@ -223,7 +227,6 @@
             <ScalarProperty Name="ProductName" ColumnName="ProductName" />
             <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
             <ScalarProperty Name="CurrencySymbolOfPrice" ColumnName="CurrencySymbolOfPrice" />
-            <ScalarProperty Name="ValidFromDatre" ColumnName="ValidFromDatre" />
             <ScalarProperty Name="ValidToDate" ColumnName="ValidToDate" />
             <ScalarProperty Name="ProductShortDescription" ColumnName="ProductShortDescription" />
             <ScalarProperty Name="ProductLongDescription" ColumnName="ProductLongDescription" />
@@ -290,7 +293,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="ItemsModel" ZoomLevel="71">
+      <Diagram Name="ItemsModel" ZoomLevel="104">
         <EntityTypeShape EntityType="ItemCoreModel.Category" Width="1.5" PointX="0.75" PointY="3.5" Height="1.9802864583333335" IsExpanded="true" />
         <EntityTypeShape EntityType="ItemCoreModel.Item" Width="1.5" PointX="3" PointY="1.125" Height="6.5955208333333335" IsExpanded="true" />
         <EntityTypeShape EntityType="ItemCoreModel.Pricing" Width="1.5" PointX="5.75" PointY="0.75" Height="1.7879850260416665" IsExpanded="true" />
