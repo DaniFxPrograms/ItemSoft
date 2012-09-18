@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ItemCoreModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ItemCoreModelStoreContainer">
+          <EntitySet Name="Category" EntityType="ItemCoreModel.Store.Category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Item" EntityType="ItemCoreModel.Store.Item" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemCategory" EntityType="ItemCoreModel.Store.ItemCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pricing" EntityType="ItemCoreModel.Store.Pricing" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Setting" EntityType="ItemCoreModel.Store.Setting" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ItemCategory_Category" Association="ItemCoreModel.Store.FK_ItemCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="ItemCategory" EntitySet="ItemCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemCategory_Item" Association="ItemCoreModel.Store.FK_ItemCategory_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemCategory" EntitySet="ItemCategory" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Zupid" Type="nvarchar(max)" />
+          <Property Name="MerchantProductNumber" Type="nvarchar(max)" />
+          <Property Name="ProductName" Type="nvarchar(max)" />
+          <Property Name="ProductPrice" Type="nvarchar(max)" />
+          <Property Name="CurrencySymbolOfPrice" Type="nvarchar(max)" />
+          <Property Name="ValidFromDatre" Type="nvarchar(max)" />
+          <Property Name="ValidToDate" Type="nvarchar(max)" />
+          <Property Name="ProductShortDescription" Type="nvarchar(max)" />
+          <Property Name="ProductLongDescription" Type="nvarchar(max)" />
+          <Property Name="MerhantProductCategory" Type="nvarchar(max)" />
+          <Property Name="ZanoxCategoryIds" Type="nvarchar(max)" />
+          <Property Name="ImageSmallUrl" Type="nvarchar(max)" />
+          <Property Name="ImageMediumUrl" Type="nvarchar(max)" />
+          <Property Name="ImageLargeUrl" Type="nvarchar(max)" />
+          <Property Name="ProductManufacturerBran" Type="nvarchar(max)" />
+          <Property Name="ZanoxProductLink" Type="nvarchar(max)" />
+          <Property Name="MerchantProductCategoryNumber" Type="nvarchar(max)" />
+          <Property Name="DeliveryTime" Type="nvarchar(max)" />
+          <Property Name="TermsOfContract" Type="nvarchar(max)" />
+          <Property Name="ProductEAN" Type="nvarchar(max)" />
+          <Property Name="ISBN" Type="nvarchar(max)" />
+          <Property Name="ShippingAndHandling" Type="nvarchar(max)" />
+          <Property Name="ShippingAndHandlingCost" Type="nvarchar(max)" />
+          <Property Name="ExtraTextOne" Type="nvarchar(max)" />
+          <Property Name="ExtraTextTwo" Type="nvarchar(max)" />
+          <Property Name="ExtraTextTree" Type="nvarchar(max)" />
+          <Property Name="Culture" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ItemCategory">
+          <Key>
+            <PropertyRef Name="ItemId" />
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pricing">
+          <Key>
+            <PropertyRef Name="PricingId" />
+          </Key>
+          <Property Name="PricingId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Path" Type="nvarchar(max)" />
+          <Property Name="Culture" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="SettingId" />
+          </Key>
+          <Property Name="SettingId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Value" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_ItemCategory_Category">
+          <End Role="Category" Type="ItemCoreModel.Store.Category" Multiplicity="1" />
+          <End Role="ItemCategory" Type="ItemCoreModel.Store.ItemCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="ItemCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemCategory_Item">
+          <End Role="Item" Type="ItemCoreModel.Store.Item" Multiplicity="1" />
+          <End Role="ItemCategory" Type="ItemCoreModel.Store.ItemCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="ItemCategory">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ItemCoreModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ItemCoreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Category" EntityType="ItemCoreModel.Category" />
+          <EntitySet Name="Item" EntityType="ItemCoreModel.Item" />
+          <EntitySet Name="Pricing" EntityType="ItemCoreModel.Pricing" />
+          <AssociationSet Name="ItemCategory" Association="ItemCoreModel.ItemCategory">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <EntitySet Name="Setting" EntityType="ItemCoreModel.Setting" />
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Item" Relationship="ItemCoreModel.ItemCategory" FromRole="Category" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Zupid" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MerchantProductNumber" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ProductName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ProductPrice" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CurrencySymbolOfPrice" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ValidFromDatre" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ValidToDate" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ProductShortDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ProductLongDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MerhantProductCategory" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ZanoxCategoryIds" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ImageSmallUrl" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ImageMediumUrl" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ImageLargeUrl" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ProductManufacturerBran" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ZanoxProductLink" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MerchantProductCategoryNumber" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DeliveryTime" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="TermsOfContract" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ProductEAN" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ISBN" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ShippingAndHandling" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ShippingAndHandlingCost" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ExtraTextOne" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ExtraTextTwo" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ExtraTextTree" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Culture" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Category" Relationship="ItemCoreModel.ItemCategory" FromRole="Item" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="Pricing">
+          <Key>
+            <PropertyRef Name="PricingId" />
+          </Key>
+          <Property Name="PricingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Path" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Culture" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <Association Name="ItemCategory">
+          <End Role="Category" Type="ItemCoreModel.Category" Multiplicity="*" />
+          <End Role="Item" Type="ItemCoreModel.Item" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="SettingId" />
+          </Key>
+          <Property Type="Int32" Name="SettingId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Value" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ItemCoreModelStoreContainer" CdmEntityContainer="ItemCoreEntities">
+          <EntitySetMapping Name="Category"><EntityTypeMapping TypeName="ItemCoreModel.Category"><MappingFragment StoreEntitySet="Category">
+            <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+            <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Item"><EntityTypeMapping TypeName="ItemCoreModel.Item"><MappingFragment StoreEntitySet="Item">
+            <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+            <ScalarProperty Name="Zupid" ColumnName="Zupid" />
+            <ScalarProperty Name="MerchantProductNumber" ColumnName="MerchantProductNumber" />
+            <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+            <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+            <ScalarProperty Name="CurrencySymbolOfPrice" ColumnName="CurrencySymbolOfPrice" />
+            <ScalarProperty Name="ValidFromDatre" ColumnName="ValidFromDatre" />
+            <ScalarProperty Name="ValidToDate" ColumnName="ValidToDate" />
+            <ScalarProperty Name="ProductShortDescription" ColumnName="ProductShortDescription" />
+            <ScalarProperty Name="ProductLongDescription" ColumnName="ProductLongDescription" />
+            <ScalarProperty Name="MerhantProductCategory" ColumnName="MerhantProductCategory" />
+            <ScalarProperty Name="ZanoxCategoryIds" ColumnName="ZanoxCategoryIds" />
+            <ScalarProperty Name="ImageSmallUrl" ColumnName="ImageSmallUrl" />
+            <ScalarProperty Name="ImageMediumUrl" ColumnName="ImageMediumUrl" />
+            <ScalarProperty Name="ImageLargeUrl" ColumnName="ImageLargeUrl" />
+            <ScalarProperty Name="ProductManufacturerBran" ColumnName="ProductManufacturerBran" />
+            <ScalarProperty Name="ZanoxProductLink" ColumnName="ZanoxProductLink" />
+            <ScalarProperty Name="MerchantProductCategoryNumber" ColumnName="MerchantProductCategoryNumber" />
+            <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
+            <ScalarProperty Name="TermsOfContract" ColumnName="TermsOfContract" />
+            <ScalarProperty Name="ProductEAN" ColumnName="ProductEAN" />
+            <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+            <ScalarProperty Name="ShippingAndHandling" ColumnName="ShippingAndHandling" />
+            <ScalarProperty Name="ShippingAndHandlingCost" ColumnName="ShippingAndHandlingCost" />
+            <ScalarProperty Name="ExtraTextOne" ColumnName="ExtraTextOne" />
+            <ScalarProperty Name="ExtraTextTwo" ColumnName="ExtraTextTwo" />
+            <ScalarProperty Name="ExtraTextTree" ColumnName="ExtraTextTree" />
+            <ScalarProperty Name="Culture" ColumnName="Culture" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Pricing"><EntityTypeMapping TypeName="ItemCoreModel.Pricing"><MappingFragment StoreEntitySet="Pricing">
+            <ScalarProperty Name="PricingId" ColumnName="PricingId" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Path" ColumnName="Path" />
+            <ScalarProperty Name="Culture" ColumnName="Culture" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="ItemCategory" TypeName="ItemCoreModel.ItemCategory" StoreEntitySet="ItemCategory">
+            <EndProperty Name="Category">
+              <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+            </EndProperty>
+            <EndProperty Name="Item">
+              <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Setting">
+            <EntityTypeMapping TypeName="ItemCoreModel.Setting">
+              <MappingFragment StoreEntitySet="Setting">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SettingId" ColumnName="SettingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ItemsModel" ZoomLevel="71">
+        <EntityTypeShape EntityType="ItemCoreModel.Category" Width="1.5" PointX="0.75" PointY="3.5" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="ItemCoreModel.Item" Width="1.5" PointX="3" PointY="1.125" Height="6.5955208333333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="ItemCoreModel.Pricing" Width="1.5" PointX="5.75" PointY="0.75" Height="1.7879850260416665" IsExpanded="true" />
+        <AssociationConnector Association="ItemCoreModel.ItemCategory" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.4901432291666667" />
+          <ConnectorPoint PointX="3" PointY="4.4901432291666667" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ItemCoreModel.Setting" Width="1.5" PointX="5.375" PointY="3.75" Height="1.7879850260416657" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
