@@ -83,6 +83,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Path" Type="nvarchar(max)" />
           <Property Name="Culture" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProgramID" Type="int" />
         </EntityType>
         <EntityType Name="Setting">
           <Key>
@@ -188,6 +189,7 @@
           <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Path" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Culture" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="ProgramID" />
         </EntityType>
         <Association Name="ItemCategory">
           <End Role="Category" Type="ItemCoreModel.Category" Multiplicity="*" />
@@ -250,7 +252,8 @@
             <ScalarProperty Name="Culture" ColumnName="Culture" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Pricing"><EntityTypeMapping TypeName="ItemCoreModel.Pricing"><MappingFragment StoreEntitySet="Pricing">
-            <ScalarProperty Name="PricingId" ColumnName="PricingId" />
+            <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+                <ScalarProperty Name="PricingId" ColumnName="PricingId" />
             <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="Path" ColumnName="Path" />
             <ScalarProperty Name="Culture" ColumnName="Culture" />

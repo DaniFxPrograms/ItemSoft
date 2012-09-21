@@ -1308,6 +1308,30 @@ namespace ItemSoft.Data
         private global::System.String _Culture;
         partial void OnCultureChanging(global::System.String value);
         partial void OnCultureChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ProgramID
+        {
+            get
+            {
+                return _ProgramID;
+            }
+            set
+            {
+                OnProgramIDChanging(value);
+                ReportPropertyChanging("ProgramID");
+                _ProgramID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ProgramID");
+                OnProgramIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ProgramID;
+        partial void OnProgramIDChanging(Nullable<global::System.Int32> value);
+        partial void OnProgramIDChanged();
 
         #endregion
 

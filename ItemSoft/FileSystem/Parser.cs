@@ -40,9 +40,11 @@ namespace ItemSoft.FileSystem
 
                 WebClient client = new WebClient();
                 string fileName = p.Name + ".csv.gz";
+                Console.WriteLine("Download Listino " + p.Name + " ...");
                 client.DownloadFile(p.Path, LocalPath + @"\Pricings\" + fileName);
+                Console.WriteLine("Estrazione...");
                 ZipArchive.ExtractGZip(LocalPath + @"\Pricings\" + fileName, LocalPath + @"\Pricings\");
-
+                
 
                 string expFile= LocalPath + @"\Pricings\" +p.Name + ".csv";
                 if (File.Exists(expFile))
@@ -50,8 +52,13 @@ namespace ItemSoft.FileSystem
                     FileHelperEngine engine = new FileHelperEngine(typeof(Product));
 
                     Product[] _products = (Product[])engine.ReadFile(expFile);
+                    Console.WriteLine("Ci sono " + _products.Count().ToString() + " prodotti");
+                    Console.WriteLine("Elimino i prodotti vecchi...");
+                    IoC.Resolve<IItemService>().DeleteOld(_products.ToList(),p.ProgramID.Value);
+                    Console.WriteLine("Analizzaro i prodotti...");
                     IoC.Resolve<IItemService>().AnalyzeProducts(_products.ToList());
                 }
+                Console.WriteLine("Fine importazione Listino");
 
 
             }

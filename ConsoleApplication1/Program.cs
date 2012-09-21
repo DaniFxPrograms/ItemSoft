@@ -15,6 +15,8 @@ namespace ConsoleApplication1
             IoC.InitializeWith(new DependencyResolverFactory());
             Parser _parse = new Parser();
             _parse.Execute();
+            Console.WriteLine("Fine Importazione Listi");
+            Console.ReadKey();
         }
     }
 }

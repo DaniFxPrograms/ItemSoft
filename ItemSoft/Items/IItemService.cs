@@ -9,5 +9,6 @@ namespace ItemSoft.Items
     interface IItemService
     {
         void AnalyzeProducts(List<Product> products);
+        void DeleteOld(List<Product> products, int programId);
     }
 }

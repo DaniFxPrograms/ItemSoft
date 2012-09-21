@@ -24,6 +24,27 @@ namespace ItemSoft.Items
         {
             this._context = context;
         }
+
+        public void DeleteOld(List<Product> products, int programId)
+        {
+            string id=  programId.ToString();
+            var lItems = _context.Item.Where(x => x.ProgramId == id).ToList();
+            foreach (Item itm in lItems)
+            {
+                var oldItem = products.FirstOrDefault(x => x.Zupid == itm.Zupid);
+                if (oldItem == null)
+                {
+                    itm.Category.Clear();
+                    _context.Item.DeleteObject(itm);
+
+                }
+            }
+
+            _context.SaveChanges();
+
+        }
+
+
         public void AnalyzeProducts(List<Product> products)
         {
             foreach (var p in products)
